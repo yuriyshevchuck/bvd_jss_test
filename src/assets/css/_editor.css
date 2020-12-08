@@ -1,0 +1,31 @@
+ul.ticked-bullet li{
+    padding-left: 25px;
+}
+
+ul.ticked-bullet li:before{
+    width: 20px;
+    height: 20px;
+    top: 3px;
+	background: no-repeat url(./img/icons/list-style.png);
+}
+
+ul.exm-ticked-bullet li{
+    padding-left: 25px;
+}
+
+ul.exm-ticked-bullet li:before{
+    width: 20px;
+    height: 20px;
+    top: 3px;
+	background: no-repeat url(./img/icons/list-style.png);
+}
+
+ul.exm-round-bullet li{
+    padding-left: 25px;
+}
+
+ul.exm-round-bullet li:before{
+    width: 20px;
+    height: 20px;
+    top: 3px;
+}
