@@ -257,7 +257,7 @@ export default function AutoSuggest() {
                             </div>)
                         })}
                     </div> */}
-                    <div style={{left: "20vw", top: "63px", position: "absolute"}}>
+                    <div style={{left: "10vw", top: "20vh", position: "absolute"}}>
                         <Facets 
                             facets={groupedFacets}
                             selectedFacets={selectedFacets}
