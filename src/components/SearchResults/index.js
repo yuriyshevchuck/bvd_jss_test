@@ -21,7 +21,7 @@ const SearchResults = ({ data }) => {
                         </Card.Body>
                     </Card>
             )})}
-        </>
+        </div>
     )
 }
 
