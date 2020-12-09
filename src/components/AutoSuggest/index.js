@@ -1,5 +1,7 @@
+/* eslint-disable prettier/prettier */
 import React, { useCallback, useState, useMemo } from "react";
-import { useQuery, gql } from '@apollo/client';
+import { useQuery } from '@apollo/react-hooks';
+import { gql } from "apollo-boost";
 
 import ProductSearchInput from "../ProductSearchInput";
 import Facets from "../Facets";
