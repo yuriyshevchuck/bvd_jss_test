@@ -22,9 +22,12 @@ const groupBy = (items, key) => items.reduce(
 // const 
 
 const CUSTOM_SEARCH = gql`
-query CustomSearch($conditions: [CustomItemSearchFieldQuery]!){   
+query CustomSearch(
+    $conditions: [CustomItemSearchFieldQuery]!
+    $keyword: String!
+){   
     customSearch(
-        keyword: "*" 
+        keyword: $keyword 
         rootItem: "{8E6CBF71-22C2-43EF-B21D-1DF7D45B583A}"
         conditions: $conditions
         facetOn:["Facets"]
@@ -56,6 +59,7 @@ query CustomSearch($conditions: [CustomItemSearchFieldQuery]!){
       }
     }
   }
+
 `
 
 const SEARCH_ITEMS = gql`
@@ -159,7 +163,8 @@ export default function AutoSuggest() {
                     {name:"_templatename", value:"App Route" },
                     {name:"_fullpath", value:"/sitecore/content/bvd_jss_test/home/products/", contains: true},
                     ...facetsForGQL
-                ]
+                ],
+                keyword: searchTerm || "*"
             }
         }    
     )
@@ -184,7 +189,12 @@ export default function AutoSuggest() {
     }, [facetsData]);
 
     const groupedFacets = useMemo(() => {
-        if (customSearchResult && facetsData) {
+        if (customSearchResult && 
+            customSearchResult.customSearch && 
+            customSearchResult.customSearch.facets && 
+            customSearchResult.customSearch.facets[0] && 
+            facetsData
+        ) {
             let _f = JSON.parse(JSON.stringify(customSearchResult.customSearch.facets[0].values));
             for (let group of facetsData.item.children) {
                 console.log("group: ", group);
