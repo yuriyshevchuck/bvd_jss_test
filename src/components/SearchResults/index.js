@@ -3,7 +3,11 @@ import {Card} from "react-bootstrap";
 
 const SearchResults = ({ data }) => {
     return (
-        <>
+        <div style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gap: "15px"
+        }}>
             {data.map(({ item }) => {
                 const title = item.fields.find(f => f.name === "pageTitle")
                 const shortDescription = item.fields.find(f => f.name === "ShortContent")

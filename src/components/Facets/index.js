@@ -15,8 +15,10 @@ const Facets = ({
                         {_facets[key].map((facet) => {
                             const {value, count} = facet;
                             const isSelected = selectedFacets.find(el => el === value);
+                            const selectedFacetStyles = {cursor: "pointer", color: "green"};
+                            const facetStyles = {cursor: "pointer"};
                             return (
-                                <div onClick={() => onSelectFacet(value)} key={value} className={isSelected ? "selected-facet" : "facet"}>
+                                <div onClick={() => onSelectFacet(value)} key={value} style={isSelected ? selectedFacetStyles: facetStyles}>
                                     {getFacetNameById(value)}: {count} items {isSelected && '✓'}
                                 </div>
                             )
@@ -30,15 +32,6 @@ const Facets = ({
             <>
                 <h2>Facets:</h2>
                 <div>
-                    {/* {facets.map((facet) => {
-                        const {value, count} = facet;
-                        const isSelected = selectedFacets.find(el => el === value);
-                        return (
-                            <div onClick={() => onSelectFacet(value)} key={value} className={isSelected ? "selected-facet" : "facet"}>
-                                {getFacetNameById(value)}: {count} items {isSelected && '✓'}
-                            </div>
-                        )
-                    })} */}
                     {renderGroups(facets)}
                 </div>
             </>

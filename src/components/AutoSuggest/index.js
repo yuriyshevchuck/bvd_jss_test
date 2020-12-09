@@ -258,32 +258,22 @@ export default function AutoSuggest() {
                             </div>)
                         })}
                     </div> */}
-                    <Facets 
-                        facets={groupedFacets}
-                        selectedFacets={selectedFacets}
-                        getFacetNameById={getFacetNameById}
-                        onSelectFacet={handleSelectFacet}
-                    />
+                    <div style={{left: "20vw", top: "63px", position: "absolute"}}>
+                        <Facets 
+                            facets={groupedFacets}
+                            selectedFacets={selectedFacets}
+                            getFacetNameById={getFacetNameById}
+                            onSelectFacet={handleSelectFacet}
+                        />
+                        <h4> Total: {customSearchResult.customSearch.results.totalCount}</h4>
+                    </div>
 
-                    <h2>Items:</h2>
-                    <div> Total items: {customSearchResult.customSearch.results.totalCount}</div>
-                    {/* {data.search.results.items.map(({ item }) => {
-                        const title = item.fields.find(f => f.name === "pageTitle")
-                        const shortDescription = item.fields.find(f => f.name === "ShortContent")
-                        return (
-                            <Card style={{ width: '18rem' }} key={item.path}>
-                                <Card.Body>
-                                    <Card.Title>{title.value}</Card.Title>
-                                    <Card.Subtitle className="mb-2 text-muted">{shortDescription.value}</Card.Subtitle>
-                                    <Card.Link href="#">Card Link</Card.Link>
-                                    <Card.Link href="#">Another Link</Card.Link>
-                                </Card.Body>
-                            </Card>
-                        )
-                    })} */}
-                    <SearchResults
-                        data={customSearchResult.customSearch.results.items}
-                    />
+                    <div>
+                        <h2>Items:</h2>
+                        <SearchResults
+                            data={customSearchResult.customSearch.results.items}
+                        />
+                    </div>
                 </div>)}
         </div>
     )
