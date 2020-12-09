@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import React, { useCallback, useState, useMemo } from "react";
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from "apollo-boost";
